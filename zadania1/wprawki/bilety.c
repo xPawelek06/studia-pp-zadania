@@ -51,7 +51,12 @@ int main(void) {
         do {
             printf("Podaj swoja kwote: ");
             if (scanf("%f%c", &kwota_klienta, &znak) == 2 && znak == '\n') {
-                koniec = 0;
+                if (kwota_klienta < 0) {
+                    printf("Twoja kwota musi byc nieujemna!\n");
+                    continue;
+                } else {
+                    koniec = 0;
+                }
             } else {
                 printf("Musisz podac liczbe!\n");
                 while (getchar() != '\n');
